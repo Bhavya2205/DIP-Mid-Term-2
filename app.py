@@ -57,7 +57,7 @@ else:
   if Operation=='/':
     print("Divided Image")
     img=img1/img2
-  cv2_imshow(img)
+  print(img)
   
 if st.button("About"):
   st.header(" Bhavya Maheshwari")
