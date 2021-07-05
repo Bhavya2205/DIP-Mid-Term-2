@@ -53,7 +53,7 @@ def apply_transform(img1_data):
   if Operation=='/':
       print("Divided Image")
       img=img1/img2
-  st.image(img, use_column_width=True)
+  st.image(img, use_column_width=True, clamp=True)
   return 0
 if file is None:
   st.text("Please upload an Image file")
