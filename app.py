@@ -29,8 +29,7 @@ st.title("""
         Mathematical Operations
          """
          )
-file1= st.file_uploader("Please upload image", type=("jpg", "png"))
-file2= st.file_uploader("Please upload image", type=("jpg", "png"))
+file= st.file_uploader("Please upload image", type=("jpg", "png"))
 Operation = st.selectbox("Operations: ",
                      ['+', '-', '*','/'])
 
@@ -41,7 +40,7 @@ def apply_transform(img1_data, img2_data):
   #image = image.img_to_array(img)
   #img_reshap= np.expand_dims(image, axis=0)
   #img_reshap = preprocess_input(img_reshap)
-   
+  img2=np.ones(img.shape, dtype="uint8")*100 
   if Operation=='+':
       print("Added Image")
       img=img1+img2
@@ -59,16 +58,12 @@ def apply_transform(img1_data, img2_data):
 if file is None:
   st.text("Please upload an Image file")
 else:
-  file_bytes1 = np.asarray(bytearray(file1.read()), dtype=np.uint8)
-  img1 = cv2.imdecode(file_bytes1, 1)
-  st.image(file,caption='Uploaded Image.', use_column_width=True)
-
-  file_bytes2 = np.asarray(bytearray(file2.read()), dtype=np.uint8)
-  img2 = cv2.imdecode(file_bytes2, 1)
+  file_bytes = np.asarray(bytearray(file.read()), dtype=np.uint8)
+  img1 = cv2.imdecode(file_bytes, 1)
   st.image(file,caption='Uploaded Image.', use_column_width=True)
     
 if st.button("Apply Transformation"):
-  result=apply_transform(img1, img2)
+  result=apply_transform(img1)
   
 if st.button("About"):
   st.header("Bhavya Maheshwari")
