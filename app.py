@@ -35,7 +35,7 @@ Operation = st.selectbox("Operations: ",
 
 import cv2
 from  PIL import Image, ImageOps
-def apply_transform(img1_data, img2_data):
+def apply_transform(img1_data):
   #img = image.load_img(image_data, target_size=(224, 224))
   #image = image.img_to_array(img)
   #img_reshap= np.expand_dims(image, axis=0)
