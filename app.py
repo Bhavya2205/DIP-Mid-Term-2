@@ -40,7 +40,7 @@ def apply_transform(img1_data):
   #image = image.img_to_array(img)
   #img_reshap= np.expand_dims(image, axis=0)
   #img_reshap = preprocess_input(img_reshap)
-  img2=np.ones(img.shape, dtype="uint8")*100 
+  img2=np.ones(img1.shape, dtype="uint8")*100 
   if Operation=='+':
       print("Added Image")
       img=img1+img2
