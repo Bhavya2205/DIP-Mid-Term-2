@@ -29,8 +29,10 @@ st.title("""
         Mathematical Operations
          """
          )
-file= st.file_uploader("Please upload image", type=("jpg", "png"))
-Operation = '' #@param ["+", "-", "*", "/"] {allow-input: true}
+file1= st.file_uploader("Please upload image", type=("jpg", "png"))
+file2= st.file_uploader("Please upload image", type=("jpg", "png"))
+Operation = st.selectbox("Operations: ",
+                     ['+', '-', '*','/])
 
 import cv2
 from  PIL import Image, ImageOps
@@ -57,11 +59,11 @@ def apply_transform(img1_data, img2_data):
 if file is None:
   st.text("Please upload an Image file")
 else:
-  file_bytes1 = np.asarray(bytearray(file.read()), dtype=np.uint8)
+  file_bytes1 = np.asarray(bytearray(file1.read()), dtype=np.uint8)
   img1 = cv2.imdecode(file_bytes1, 1)
   st.image(file,caption='Uploaded Image.', use_column_width=True)
 
-  file_bytes2 = np.asarray(bytearray(file.read()), dtype=np.uint8)
+  file_bytes2 = np.asarray(bytearray(file2.read()), dtype=np.uint8)
   img2 = cv2.imdecode(file_bytes2, 1)
   st.image(file,caption='Uploaded Image.', use_column_width=True)
     
