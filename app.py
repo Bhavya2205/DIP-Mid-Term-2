@@ -30,7 +30,7 @@ st.title("""
          """
          )
 file= st.file_uploader("Please upload image", type=("jpg", "png"))
-Operation = '-' #@param ["+", "-", "*", "/"] {allow-input: true}
+Operation = '' #@param ["+", "-", "*", "/"] {allow-input: true}
 
 import cv2
 from  PIL import Image, ImageOps
