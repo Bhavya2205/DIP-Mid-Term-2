@@ -34,7 +34,7 @@ Operation = '-' #@param ["+", "-", "*", "/"] {allow-input: true}
 
 import cv2
 from  PIL import Image, ImageOps
-def apply_transform(image_data):
+def apply_transform(img1_data, img2_data):
   #img = image.load_img(image_data, target_size=(224, 224))
   #image = image.img_to_array(img)
   #img_reshap= np.expand_dims(image, axis=0)
@@ -57,12 +57,16 @@ def apply_transform(image_data):
 if file is None:
   st.text("Please upload an Image file")
 else:
-  file_bytes = np.asarray(bytearray(file.read()), dtype=np.uint8)
-  image = cv2.imdecode(file_bytes, 1)
+  file_bytes1 = np.asarray(bytearray(file.read()), dtype=np.uint8)
+  img1 = cv2.imdecode(file_bytes1, 1)
+  st.image(file,caption='Uploaded Image.', use_column_width=True)
+
+  file_bytes2 = np.asarray(bytearray(file.read()), dtype=np.uint8)
+  img2 = cv2.imdecode(file_bytes2, 1)
   st.image(file,caption='Uploaded Image.', use_column_width=True)
     
 if st.button("Apply Transformation"):
-  result=apply_transform(image)
+  result=apply_transform(img1, img2)
   
 if st.button("About"):
   st.header("Bhavya Maheshwari")
