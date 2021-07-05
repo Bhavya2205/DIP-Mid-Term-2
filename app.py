@@ -37,12 +37,15 @@ st.title("""
         Mathematical Operations on the Images
          """
          )
-file= st.file_uploader("Please upload image", type=("jpg", "png"))
+img1= st.file_uploader("Please upload image", type=("jpg", "png"))
+img2= st.file_uploader("Please upload image", type=("jpg", "png"))
 Operation = ' ' #@param ["+", "-", "*", "/"] {allow-input: true}
 
 import cv2
 from  PIL import Image, ImageOps
-if file is None:
+if img1 is None:
+  st.text("Please upload an Image file")
+if img2 is None:
   st.text("Please upload an Image file")
 else:
   if Operation=='+':
