@@ -32,7 +32,7 @@ st.title("""
 file1= st.file_uploader("Please upload image", type=("jpg", "png"))
 file2= st.file_uploader("Please upload image", type=("jpg", "png"))
 Operation = st.selectbox("Operations: ",
-                     ['+', '-', '*','/])
+                     ['+', '-', '*','/'])
 
 import cv2
 from  PIL import Image, ImageOps
